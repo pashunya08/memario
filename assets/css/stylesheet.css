@@ -1,0 +1,264 @@
+@font-face {
+  font-family: "PixelEmulator";
+  src: url("../font/pixel-emulator.otf");
+}
+a {
+  text-decoration: underline;
+}
+html, body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  font-family: 'Arial';
+  background-color: lightgray;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.description {
+  position: absolute;
+  bottom: 100px;
+}
+
+.description h2 {
+  font-size: 50px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.controls {
+  margin: 30px 15px 5px 15px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+}
+
+.controls h2 {
+  color: #000000;
+  font-size: 32px;
+  text-align: center;
+}
+
+.controls h3 {
+  color: #000000;
+  font-size: 22px;
+  margin: 10px 5px;
+  text-align: center;
+}
+
+div#mute-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-size: 40px;
+  background-position: center;
+  background-image: url('../images/muted.png');
+}
+
+div#mute-button:focus {
+  outline: none;
+}
+
+div#mute-button.muted {
+  background-image: url('../images/speaker.png');
+}
+
+canvas {
+  height: 100vh;
+  width: 100vw;
+  user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}
+
+.scorebar{    
+    position: absolute;
+    height: 120px;
+    width:100%;   
+    top: 50px;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 180%;
+        color: white;
+    
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 0.2;
+}
+
+.topline-mario{position:absolute; left: 38%}
+.topline-world{position:absolute;left: 60%;}
+.topline-time{position:absolute; left: 80%;}
+.bottomline-score{position:absolute; top: 90px;}
+.bottomline-score a, .topline-time a{color:#fff;}
+.bottomline-coin{position:absolute; top: 80px; left:30%;}
+.bottomline-world{position:absolute; top: 90px; left:55.7%;}
+.bottomline-time{position:absolute; top: 90px; left:80%;}
+
+@media screen and (min-width: 1024px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+    .main {
+      display: none;
+    }
+    .mobile {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    
+    html, body{
+	font-family: 'Press Start 2P', cursive;
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    margin: 0; 
+    padding: 0;
+}
+
+
+.topline-mario{position:absolute; left: 50px}
+.topline-world{position:absolute;left: 35%;}
+.topline-time{position:absolute; margin-left: -130px;}
+.bottomline-score{position:absolute; top: 90px;}
+.bottomline-score a, .topline-time a{color:#fff;}
+.bottomline-coin{position:absolute; top: 80px; left:30%;}
+.bottomline-world{position:absolute; top: 90px; left:55.7%;}
+.bottomline-time{position:absolute; top: 90px; left:10%;}
+
+
+.sky, .ground{
+    position: relative;
+}
+
+.sky{
+    height: 80%;
+    background-color: #548CFF;    
+}
+.ground{ 
+    height: 30vh;
+    background-color: #C84C0C; 
+    background-image: url('../images/groundblock.png');        
+}
+.scorebar{    
+    position: absolute;
+    height: 120px;
+    width:100%;    
+    
+        font-family: 'Press Start 2P', cursive;
+        font-size: 180%;
+        color: white;
+    
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 0.2;
+}
+.cloud{
+    position: absolute;
+    height: 100px;
+    
+}
+    .cloud:nth-child(2){
+        top: 120px; 
+        -webkit-animation: wind 80s both infinite linear reverse; 
+                animation: wind 80s both infinite linear reverse;
+    }
+    .cloud:nth-child(3){
+        top: 280px;
+        -webkit-animation: wind 50s both infinite linear reverse;
+                animation: wind 50s both infinite linear reverse;
+    }
+    .cloud:nth-child(4){
+        top: 450px;
+        -webkit-animation: wind 30s both infinite linear reverse;
+                animation: wind 30s both infinite linear reverse;
+    }
+
+.skyblocks{
+    position: absolute;   
+    top: -250px;
+}
+    .brick{     
+        position: fixed;        
+        margin: -2px;
+    }
+        .brick:nth-child(1){
+            left:600px;
+        } 
+        .brick:nth-child(2){
+            left:670px;
+        } 
+        .brick:nth-child(3){
+            left:740px;
+        } 
+        .brick:nth-child(4){
+            left:810px;
+        } 
+
+    
+
+
+.bush{
+    position: absolute;
+    top:-70px;
+}
+    .bush:nth-child(1){
+        left: 150px;   
+    }
+    .bush:nth-child(2){
+        left: 900px;;   
+    }
+    .bush:nth-child(3){
+        left: 1500px;;   
+    }
+
+.mario{
+    position: absolute;
+    width: 71px;
+    height: 72px;
+    background: url('../images/result.png') left center;    
+    top:-70px;
+    left:0px;
+    
+    -webkit-animation: play 0.8s steps(4) infinite,
+                run 7s both infinite linear;
+    
+            animation: play 0.8s steps(4) infinite,
+                run 7s both infinite linear;
+}
+
+
+}
+
+@-webkit-keyframes play{
+    100%{background-position: -284px;}
+}
+@keyframes play{
+    100%{background-position: -284px;}
+}
+@-webkit-keyframes run{
+    from{left: -200px;}
+    to{left: 100%;}
+}
+@keyframes run{
+    from{left: -200px;}
+    to{left: 100%;}
+}
+@-webkit-keyframes wind{
+    from{left: -300px;}
+    to{left: 100%;}
+}
+@keyframes wind{
+    from{left: -300px;}
+    to{left: 100%;}
+}
